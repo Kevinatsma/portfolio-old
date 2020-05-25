@@ -1,0 +1,16 @@
+<main class="main-wrapper" *ngIf="(auth.user$ | async) || {} as user">
+  <section class="login-container">
+    <h2 class="white">Hey There! 👋🏼</h2>
+    <p class="intro-text">
+      Create an account if you want to be a moderator or admin of the site.
+      The account has to be approved by the master admin before it's usable.
+    </p>
+
+    <div class="btn-area">
+      <button type="button" class="btn__icon-left" (click)="googleLogin()">
+        <img src="./../../../../assets/icons/google.svg">
+        <span>Signup with Google</span>
+      </button>
+    </div>
+  </section>
+</main>
