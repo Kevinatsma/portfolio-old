@@ -1,12 +1,7 @@
-<main class="page-wrapper">
-  <section class="page-wrapper__header">
-      <!-- <app-header></app-header> -->
-      {{ 'demo.title' | translate }}
-  </section>
-  <section class="page-wrapper__content">
-    <router-outlet class="page-wrapper__content"></router-outlet>
-  </section>
-  <section class="page-wrapper__footer">
-    <!-- <app-footer></app-footer> -->
-  </section>
-</main>
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
