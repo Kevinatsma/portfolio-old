@@ -44,4 +44,4 @@ Thumbs.db
 
 # Firebase
 firebase-debug.log
-src/environments/*
+# src/environments/*
