@@ -1,0 +1,48 @@
+@import './../../../../assets/scss/config';
+
+.padding-layer {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 2em;
+    box-sizing: border-box;
+}
+main.confirm-dialog-container {
+    min-width: 35vw;
+    max-width: 50vw;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.mat-dialog-container {
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+
+    h2 {
+        color: $asphalt;
+    }
+
+    p.card-text {
+        color: $black;
+        margin: 15px 0 40px;
+        padding: 0;
+    }
+}
+
+
+.dialog-actions {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    width: 100%;
+    
+    button {
+        width: auto;
+
+        &:first-child {
+            margin-right: 2em;
+        }
+    }
+}

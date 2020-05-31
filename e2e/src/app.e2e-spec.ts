@@ -170,12 +170,12 @@ describe('Universal', () => {
     it('displays correctly styled buttons', async () => {
       element.all(by.buttonText('x')).then(buttons => {
         for (const button of buttons) {
-          // Inherited styles from styles.css
+          // Inherited styles from styles.scss
           expect(button.getCssValue('font-family')).toBe('Arial');
           expect(button.getCssValue('border')).toContain('none');
           expect(button.getCssValue('padding')).toBe('5px 10px');
           expect(button.getCssValue('border-radius')).toBe('4px');
-          // Styles defined in heroes.component.css
+          // Styles defined in heroes.component.scss
           expect(button.getCssValue('left')).toBe('194px');
           expect(button.getCssValue('top')).toBe('-32px');
         }

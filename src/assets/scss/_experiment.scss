@@ -1,0 +1,18 @@
+@import './config';
+@import './mixins';
+
+main.experiment-container {
+    padding-top: $header-height;
+
+    @include respond-down($sm) {
+        padding-top: $header-height-s;
+    }
+    section {
+        height: calc(100vh - #{$header-height});
+        width: 100vh;
+
+        @include respond-down($sm) {
+            height: calc(100vh - #{$header-height-s});
+        }
+    }
+}
