@@ -1,0 +1,10 @@
+@import './../../../assets/scss/config';
+@import './../../../assets/scss/animations';
+
+#home-page {
+    background-color: $black;
+
+    p {
+        color: $white;
+    }
+}
