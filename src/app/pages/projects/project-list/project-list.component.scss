@@ -1,0 +1,12 @@
+@import './../../../../assets/scss/mixins';
+
+.project-list {
+    height: auto;
+    width: 100%;
+    @include flex(flex-start, flex-start, column, nowrap);
+
+    &__item {
+        height: 100vh;
+        width: 100%;
+    }
+}

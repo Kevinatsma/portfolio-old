@@ -49,6 +49,10 @@ body {
 		letter-spacing: $text-spacing;
 		line-height: 1.6rem;
 		@include rem(font-size, $fs-base);
+
+		&.white {
+			color: $white;
+		}
 	}
 
 	span {

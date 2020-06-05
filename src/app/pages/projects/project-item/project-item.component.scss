@@ -1,0 +1,11 @@
+@import './../../../../assets/scss/config';
+@import './../../../../assets/scss/mixins';
+
+.project-item {
+    width: 100vw;
+    height: 100vh;
+
+    &__title {
+        color: $white;
+    }
+}

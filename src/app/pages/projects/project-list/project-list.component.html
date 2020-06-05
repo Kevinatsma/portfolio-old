@@ -1,0 +1,12 @@
+<div class="project-list" *ngIf="projects?.length; else loadingSpinner">
+    <div class="project-list__item" *ngFor="let project of projects; index as i"
+        id="project-item-{{i}}">
+        <ng-container *ngIf="elementInView(i)">
+            <project-item></project-item>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #loadingSpinner>
+    <p class="white">Loading Spinner</p>
+</ng-template>

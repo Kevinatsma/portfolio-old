@@ -136,8 +136,8 @@ export class UtilsService {
   }
 
   addClasses(el: HTMLElement, classes: string[] | string) {
-    classes = _.isArray(classes) ? classes : [classes];
-    _.each(classes, cssClass => {
+    const mainClass = _.isArray(classes) ? classes : [classes];
+    _.each(mainClass, cssClass => {
       if (!el.classList.contains(cssClass)) {
         el.classList.add(cssClass);
       }
@@ -145,8 +145,8 @@ export class UtilsService {
   }
 
   removeClasses(el: HTMLElement, classes: string[] | string) {
-    classes = _.isArray(classes) ? classes : [classes];
-    _.each(classes, cssClass => {
+    const mainClass = _.isArray(classes) ? classes : [classes];
+    _.each(mainClass, cssClass => {
       if (el.classList.contains(cssClass)) {
         el.classList.remove(cssClass);
       }

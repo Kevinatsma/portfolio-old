@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExperimentsComponent } from './experiments/experiments.component';
+import { ExperimentsComponent } from './experiments.component';
 
 const COMPONENTS = [
   ExperimentsComponent

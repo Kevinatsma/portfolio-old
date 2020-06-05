@@ -15,7 +15,8 @@ import { ExperimentsModule } from './experiments/experiments.module';
     ExperimentsModule
   ],
   exports: [
-    HomeModule
+    HomeModule,
+    ProjectsModule
   ]
 })
 export class PagesModule { }
