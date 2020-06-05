@@ -6,6 +6,13 @@ import { RoundNumberPipe } from './pipes/round-number.pipe';
 import { MaterialModule } from './material.module';
 import { ImageLoaderDirective } from './directives/image-loader/image-loader.directive';
 import { DialogsModule } from './dialogs/dialogs.module';
+import { PrimaryButtonComponent } from './components/primary-button/primary-button.component';
+import { SlicedButtonComponent } from './components/sliced-button/sliced-button.component';
+
+const COMPONENTS = [
+  PrimaryButtonComponent,
+  SlicedButtonComponent
+];
 
 @NgModule({
   declarations: [
@@ -13,6 +20,7 @@ import { DialogsModule } from './dialogs/dialogs.module';
     RoundNumberPipe,
     DropZoneDirective,
     ImageLoaderDirective,
+    ...COMPONENTS
   ],
   imports: [
     CommonModule,
@@ -24,7 +32,8 @@ import { DialogsModule } from './dialogs/dialogs.module';
     RoundNumberPipe,
     DropZoneDirective,
     ImageLoaderDirective,
-    DialogsModule
+    DialogsModule,
+    ...COMPONENTS
   ]
 })
 export class SharedModule { }

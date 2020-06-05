@@ -2,6 +2,15 @@
 @import './config';
 @import './extends';
 
+// Layout
+
+@mixin flex($justifyContent: flex-start, $alignItems: flex-start, $direction: row, $wrap: no-wrap) {
+  align-items: $alignItems;
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $justifyContent;
+}
+
 ////////////////////////////
 ////////////////////////////
 // Buttons

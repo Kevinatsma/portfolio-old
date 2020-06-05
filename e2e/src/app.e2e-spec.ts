@@ -35,7 +35,7 @@ class Hero {
 }
 
 describe('Universal', () => {
-  const expectedH1 = 'Tour of Heroes';
+  const expectedH1 = 'Portfolio Kevin';
   const expectedTitle = `${expectedH1}`;
   const targetHero = { id: 15, name: 'Magneta' };
   const targetHeroDashboardIndex = 3;
