@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ProjectsSectionComponent } from './projects-section/projects-section.component';
 import { HomeComponent } from './home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ExperimentSectionComponent } from './experiment-section/experiment-section.component';
 
 const COMPONENTS = [
   HomeComponent,
-  ProjectsSectionComponent
+  ProjectsSectionComponent,
+  ExperimentSectionComponent
 ];
 
 @NgModule({
