@@ -1,5 +1,6 @@
-<div class="project-list" *ngIf="projects?.length; else loadingSpinner">
-    <div class="project-list__actions">
+<div class="project-list"
+    *ngIf="projects?.length; else loadingSpinner">
+    <div class="project-list__actions" *ngIf="!utils.isMobile()">
         <!-- <mat-form-field class="filters">
             <mat-label>Filter</mat-label>
             <mat-select>
@@ -16,10 +17,14 @@
             </button>
         </div>
     </div>
-    <div class="project-list__item project-list__item--{{currentLayout}"
-        *ngFor="let project of projects; index as i"
-        id="project-item-{{i}}">
-        <project-item [project]="project" [index]="i" *ngIf="elementInView(i)"></project-item>
+    <div class="project-list__list project-list__list--{{currentLayout}}">
+        <div class="project-item"
+            *ngFor="let project of projects; index as i"
+            id="project-item-{{i}}">
+            <project-item [project]="project" [index]="i"
+                [class.visible]="elementInView(i)"
+                [layout]="currentLayout"></project-item>
+        </div>
     </div>
 </div>
 

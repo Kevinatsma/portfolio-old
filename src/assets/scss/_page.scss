@@ -12,7 +12,7 @@
         z-index: 15;
 
         &::after {
-            background-color: lighten($black, 5%);
+            background-color: lighten($black-2, 5%);
             bottom: 0;
             content: '';
             height: 1px;

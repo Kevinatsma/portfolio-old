@@ -17,29 +17,35 @@
 
 @mixin iconButton($iconColor: $white, $bgColor: transparent) {
   background-color: $bgColor;
-  border-radius: 50%;
   color: $iconColor;
   font-size: 18px;
   font-weight: $light;
-  height: 35px;
+  height: 40px;
   letter-spacing: 1px;
   margin: 0 10px;
   opacity: 1;
   transition: all .35s cubic-bezier(0.165, 0.84, 0.44, 1);
-  width: 35px;
+  width: 40px;
 
   @extend %flex-center;
 
-  &:hover,
-  &--active {
+  &:hover {
     animation: .6s background-anim;
     border: 1px solid $white;
-    color: $grey;
   }
 
-  &:focus {
-    background: none;
+  &:focus, &:active {
+    background-color: transparent;
+    border-width: 0 0 1.5px 0;
+    border-color: $white-2;
+    border-style: solid;
     outline: 0;
+  }
+
+  &--active {
+    border-width: 0 0 1.5px 0;
+    border-color: $white-2;
+    border-style: solid;
   }
 }
 
@@ -145,7 +151,7 @@
   }
 
   &:focus {
-    background-color: $grey-1;
+    background-color: $grey;
   }
 }
 
@@ -183,7 +189,7 @@
   }
 
   &:focus {
-    background-color: $grey-1;
+    background-color: $grey;
   }
 }
 
@@ -312,5 +318,17 @@ $baseFontSize: 10; // Based on HTML reset { font-size: 62.5%; }
     @media only screen and (max-width: $size) {
       @content;
     }
+  }
+}
+
+@mixin containerPadding() {
+  padding: $pd-desktop;
+
+  @include respond-down($md) {
+    padding: $pd-tablet-y $pd-tablet-x;
+  }
+
+  @include respond-down($sm) {
+    padding: $pd-mobile-y $pd-mobile-x;
   }
 }

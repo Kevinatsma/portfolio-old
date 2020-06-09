@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ElementInView } from '../models/general.model';
 import * as _ from 'lodash';
+import { ITechDescription } from '../constants/general.contants';
 
 @Injectable({
   providedIn: 'root'
@@ -154,5 +155,9 @@ export class UtilsService {
         el.classList.remove(cssClass);
       }
     });
+  }
+
+  getTechStackImg = (tech: ITechDescription): string => {
+    return `./assets/icons/${tech.icon}.svg`;
   }
 }

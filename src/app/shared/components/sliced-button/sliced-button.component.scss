@@ -51,6 +51,11 @@
         transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
         transition-delay: .3s;
 
+        span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
         &.top {
             height: 10px;
             top: -1px;

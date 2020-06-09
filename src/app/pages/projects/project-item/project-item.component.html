@@ -1,9 +1,49 @@
-<div class="project-item" id="project-{{index}}" *ngIf="project"
-    [style.background-image]="'url(' + getImageURL(project) + ')'">
-    <h1 class="project-item__title">
-        {{project.title}}
-    </h1>
-    <p>
-        {{project.description}}
-    </p>
+<div class="project-container" id="project-{{index}}" *ngIf="project"
+    [ngSwitch]="layout">
+    <div class="project-container__item project-container__item--{{layout}}"
+        *ngSwitchCase="viewLayouts.LIST">
+        <div class="card">
+            <div class="card__img">
+                <img [src]="getImageURL(project)" />
+                <sliced-button (btnClicked)="goToProject(project)" [text]="'View Project'">
+                </sliced-button>
+            </div>
+            <div class="card__content">
+                <div class="card-header">
+                    <h2 class="card-header__title">
+                        {{project.title}}
+                    </h2>
+                    <div class="card-header__stack">
+                        <div class="tooltip-icon" *ngFor="let tech of project.techStack"
+                            (mouseover)="techTooltip(tech)" (mouseout)="resetTooltip()">
+                            <img [src]="utils.getTechStackImg(tech)" />
+                        </div>
+                    </div>
+                </div>
+                <p class="card-content">
+                    {{project.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="project-container__item project-container__item--{{layout}}"
+        *ngSwitchCase="viewLayouts.GALLERY"
+        [style.background-image]="'url(' + getImageURL(project) + ')'">
+        <!-- <h1 class="project-item__title">
+            {{project.title}}
+        </h1>
+        <p>
+            {{project.description}}
+        </p> -->
+    </div>
+    <div class="project-container__item project-container__item--{{layout}}"
+        *ngSwitchCase="viewLayouts.FULL_SCREEN"
+        [style.background-image]="'url(' + getImageURL(project) + ')'">
+        <h1 class="project-item__title">
+            {{project.title}}
+        </h1>
+        <p>
+            {{project.description}}
+        </p>
+    </div>
 </div>

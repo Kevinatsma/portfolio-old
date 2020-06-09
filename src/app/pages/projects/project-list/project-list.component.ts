@@ -12,14 +12,14 @@ import { ViewLayouts, defaultViewLayouts, ViewLayout } from 'src/app/shared/cons
 export class ProjectListComponent implements OnInit, OnDestroy {
   projects: IProject[] = defaultProjects;
   debounceDelay = 500;
-  currentLayout = ViewLayouts.FULL_SCREEN;
+  currentLayout = ViewLayouts.LIST;
   layouts = defaultViewLayouts;
 
   observeScroll = _.throttle((event: any): void => {
     return
   }, this.debounceDelay);
 
-  constructor(private utils: UtilsService) { }
+  constructor(public utils: UtilsService) { }
 
   ngOnInit(): void {
     this.setLayout(this.currentLayout);
@@ -30,12 +30,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       case (ViewLayouts.FULL_SCREEN):
         return window.addEventListener('scroll', this.observeScroll, true);
       default:
-        window.removeEventListener('scroll', this.observeScroll, true);
-        break;
+        return window.removeEventListener('scroll', this.observeScroll, true);
     }
   }
 
   elementInView = (i: number): boolean => {
+    if (this.currentLayout !== ViewLayouts.FULL_SCREEN) { return true };
     const id = `project-item-${i}`;
     const target =  document.getElementById(id);
     if (!target.classList.contains('loaded')) {

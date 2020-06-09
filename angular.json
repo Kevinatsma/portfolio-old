@@ -135,7 +135,9 @@
           "options": {
             "outputPath": "dist/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "bundleDependencies": false,
+            "externalDependencies": ["@firebase/firestore"]
           },
           "configurations": {
             "production": {

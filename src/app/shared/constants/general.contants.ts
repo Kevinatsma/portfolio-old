@@ -12,7 +12,7 @@ export interface ViewLayout {
 
 export enum ViewLayouts {
     LIST = 'list',
-    LIST_VIEW_3 = 'list-view-3',
+    GALLERY = 'gallery',
     FULL_SCREEN = 'full-screen'
 }
 
@@ -22,7 +22,7 @@ export const defaultViewLayouts = [
         fa: 'far fa-list-alt'
     },
     {
-        id: ViewLayouts.LIST_VIEW_3,
+        id: ViewLayouts.GALLERY,
         fa: 'fas fa-th'
     },
     {
