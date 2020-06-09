@@ -15,9 +15,10 @@
 ////////////////////////////
 // Buttons
 
-@mixin iconButton() {
+@mixin iconButton($iconColor: $white, $bgColor: transparent) {
+  background-color: $bgColor;
   border-radius: 50%;
-  color: lighten($black, 50%);
+  color: $iconColor;
   font-size: 18px;
   font-weight: $light;
   height: 35px;
@@ -29,7 +30,8 @@
 
   @extend %flex-center;
 
-  &:hover {
+  &:hover,
+  &--active {
     animation: .6s background-anim;
     border: 1px solid $white;
     color: $grey;

@@ -5,6 +5,19 @@
     width: 100%;
     @include flex(flex-start, flex-start, column, nowrap);
 
+    &__actions {
+        height: auto;
+        padding: 20px;
+        width: 100%;
+        @include flex(flex-start, center, row, nowrap);
+
+        .view-filter {
+            margin: 0 0 0 auto;
+
+            @include flex(flex-start, center, row, nowrap);
+        }
+    }
+
     &__item {
         height: 100vh;
         width: 100%;

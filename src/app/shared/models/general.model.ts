@@ -5,6 +5,7 @@ export class ElementInView {
     height: number;
     fully: boolean;
     menu: boolean;
+    threeQ: boolean;
     half: boolean;
     partially: boolean;
     entering: boolean;

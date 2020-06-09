@@ -1,45 +1,66 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UtilsService } from 'src/app/shared/utils/utils.service';
 import * as _ from 'lodash';
+import { IProject, defaultProjects } from 'src/app/shared/constants/project.constants';
+import { ViewLayouts, defaultViewLayouts, ViewLayout } from 'src/app/shared/constants/general.contants';
 
 @Component({
   selector: 'project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss']
 })
-export class ProjectListComponent implements OnInit {
-  projects = [1, 2];
+export class ProjectListComponent implements OnInit, OnDestroy {
+  projects: IProject[] = defaultProjects;
   debounceDelay = 500;
+  currentLayout = ViewLayouts.FULL_SCREEN;
+  layouts = defaultViewLayouts;
 
   observeScroll = _.throttle((event: any): void => {
-    this.observeScrollDown();
+    return
   }, this.debounceDelay);
 
   constructor(private utils: UtilsService) { }
 
   ngOnInit(): void {
-    window.addEventListener('scroll', this.observeScroll, true);
+    this.setLayout(this.currentLayout);
   }
 
-  observeScrollDown = () => {
-    console.log('scroll fired');
+  setLayout(layoutType: ViewLayouts) {
+    switch (layoutType) {
+      case (ViewLayouts.FULL_SCREEN):
+        return window.addEventListener('scroll', this.observeScroll, true);
+      default:
+        window.removeEventListener('scroll', this.observeScroll, true);
+        break;
+    }
   }
 
-  elementInView(i: number): boolean {
+  elementInView = (i: number): boolean => {
     const id = `project-item-${i}`;
-    console.log('im called', id);
     const target =  document.getElementById(id);
     if (!target.classList.contains('loaded')) {
-      const clientRect = this.utils.getClientRect(target);
-      const elementInView = this.utils.isElementInView(clientRect, this.utils.getScreen());
-      // console.log('element in view', elementInView);
-      console.log('elements in view', id, elementInView.half || elementInView.fully);
-      if (elementInView.half || elementInView.fully) {
-        target.classList.add('loaded');
-        return true;
-      }
+      return this.checkIfElementInView(target);
     } else {
       return true;
     }
+  }
+
+  checkIfElementInView(target: HTMLElement): boolean {
+    const clientRect = this.utils.getClientRect(target);
+    const elementInView = this.utils.isElementInView(clientRect, this.utils.getScreen());
+    if (elementInView.half || elementInView.fully) {
+      target.classList.add('loaded');
+      return true;
+    }
+  }
+
+  toggleLayout(layout: ViewLayouts) {
+    this.currentLayout = layout;
+    console.log(layout);
+    this.setLayout(layout);
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.observeScroll, true);
   }
 }

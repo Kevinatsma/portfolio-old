@@ -1,9 +1,25 @@
 <div class="project-list" *ngIf="projects?.length; else loadingSpinner">
-    <div class="project-list__item" *ngFor="let project of projects; index as i"
+    <div class="project-list__actions">
+        <!-- <mat-form-field class="filters">
+            <mat-label>Filter</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let option of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field> -->
+        <div class="view-filter">
+            <button class="btn__icon" *ngFor="let layout of layouts"
+                [class.btn__icon--active]="layout.id === currentLayout"
+                (click)="toggleLayout(layout.id)">
+                <i class="{{layout.fa}}"></i>
+            </button>
+        </div>
+    </div>
+    <div class="project-list__item project-list__item--{{currentLayout}"
+        *ngFor="let project of projects; index as i"
         id="project-item-{{i}}">
-        <ng-container *ngIf="elementInView(i)">
-            <project-item></project-item>
-        </ng-container>
+        <project-item [project]="project" [index]="i" *ngIf="elementInView(i)"></project-item>
     </div>
 </div>
 

@@ -83,6 +83,11 @@ body {
 
 	a,
 	button {
+		background-color: transparent;
+		border: none;
+		margin: 0;
+		padding: 0;
+
 		&:hover,
 		&:focus {
 			cursor: pointer;
@@ -147,6 +152,12 @@ body {
 					width: 100%;
 				}
 			}
+		}
+	}
+
+	.btn {
+		&__icon {
+			@include iconButton();
 		}
 	}
 }
