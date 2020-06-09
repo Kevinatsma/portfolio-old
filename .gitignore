@@ -5,6 +5,7 @@
 
 # dependencies
 /node_modules
+/functions/node_modules
 
 # profiling files
 chrome-profiler-events.json
@@ -43,4 +44,4 @@ Thumbs.db
 
 # Firebase
 firebase-debug.log
-src/environments/*
+# src/environments/*
