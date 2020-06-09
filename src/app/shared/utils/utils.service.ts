@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ElementInView } from '../models/general.model';
 import * as _ from 'lodash';
+import { ITechDescription } from '../constants/general.contants';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import * as _ from 'lodash';
 export class UtilsService {
   GRADIENT_CLASSES = ['g1', 'g2', 'g3', 'g4'];
   FULLY_SCREEN_PERCENT = 0.01;
+  THREE_QUARTERS = 0.25;
   HALF_SCREEN_PERCENT = 0.5;
   MENU_PERCENT = 0.3;
   PARTIALLY_SCREEN_PERCENT = 0.82;
@@ -76,6 +78,7 @@ export class UtilsService {
     if (domRect && screen) {
       const fullyS = screen.height * this.FULLY_SCREEN_PERCENT;
       const menuS = screen.height * this.MENU_PERCENT;
+      const threeQs = screen.height * this.THREE_QUARTERS;
       const halfS = screen.height * this.HALF_SCREEN_PERCENT;
       const partiallyS = screen.height * this.PARTIALLY_SCREEN_PERCENT;
       const justS = screen.height * this.JUST_PARTIALLY_SCREEN_PERCENT;
@@ -86,6 +89,7 @@ export class UtilsService {
         width: domRect.width,
         height: domRect.height,
         fully: Math.abs(domRect.y) >= 0 && Math.abs(domRect.y) <= fullyS,
+        threeQ: Math.abs(domRect.y) >= 0 && Math.abs(domRect.y) <= threeQs,
         menu: Math.abs(domRect.y) > 0 && Math.abs(domRect.y) < menuS,
         half: Math.abs(domRect.y) > 0 && Math.abs(domRect.y) < halfS,
         partially: Math.abs(domRect.y) > 0 && Math.abs(domRect.y) < partiallyS,
@@ -136,8 +140,8 @@ export class UtilsService {
   }
 
   addClasses(el: HTMLElement, classes: string[] | string) {
-    classes = _.isArray(classes) ? classes : [classes];
-    _.each(classes, cssClass => {
+    const mainClass = _.isArray(classes) ? classes : [classes];
+    _.each(mainClass, cssClass => {
       if (!el.classList.contains(cssClass)) {
         el.classList.add(cssClass);
       }
@@ -145,11 +149,15 @@ export class UtilsService {
   }
 
   removeClasses(el: HTMLElement, classes: string[] | string) {
-    classes = _.isArray(classes) ? classes : [classes];
-    _.each(classes, cssClass => {
+    const mainClass = _.isArray(classes) ? classes : [classes];
+    _.each(mainClass, cssClass => {
       if (el.classList.contains(cssClass)) {
         el.classList.remove(cssClass);
       }
     });
+  }
+
+  getTechStackImg = (tech: ITechDescription): string => {
+    return `./assets/icons/${tech.icon}.svg`;
   }
 }

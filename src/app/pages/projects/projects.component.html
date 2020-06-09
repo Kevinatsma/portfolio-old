@@ -1,0 +1,14 @@
+<project-list></project-list>
+<div class="notification" *ngIf="notification">
+    <div class="notification__icon">
+        <img [src]="notification?.icon" />
+    </div>
+    <div class="notification__content">
+        <h3 class="title">
+            {{notification?.title}}
+        </h3>
+        <p class="description">
+            {{notification?.description}}
+        </p>
+    </div>
+</div>

@@ -3,7 +3,7 @@
 
 html,
 body {
-	background-color: $black;
+	background-color: $black-2;
 	height: 100vh;
 	margin: 0;
 	overflow-y: auto;
@@ -34,6 +34,7 @@ body {
 	h4,
 	h5,
 	h6 {
+		color: $title-color;
 		font-family: $main-font;
 		margin: 0;
 		padding: 0;
@@ -44,16 +45,22 @@ body {
 	}
 
 	p {
-		color: $grey-5;
+		color: $text-color;
 		font-family: $main-font;
+		font-weight: 300;
 		letter-spacing: $text-spacing;
 		line-height: 1.6rem;
 		@include rem(font-size, $fs-base);
+
+		&.white {
+			color: $white;
+		}
 	}
 
 	span {
-		color: $grey-5;
+		color: $text-color;
 		font-family: $main-font;
+		font-weight: 300;
 		letter-spacing: $text-spacing;
 	}
 
@@ -79,6 +86,11 @@ body {
 
 	a,
 	button {
+		background-color: transparent;
+		border: none;
+		margin: 0;
+		padding: 0;
+
 		&:hover,
 		&:focus {
 			cursor: pointer;
@@ -145,6 +157,12 @@ body {
 			}
 		}
 	}
+
+	.btn {
+		&__icon {
+			@include iconButton();
+		}
+	}
 }
 
 ///////////////////////////
@@ -178,6 +196,24 @@ body {
         width: inherit;
     }
   }
+}
+
+///////////////////////////
+///////////////////////////
+// Buttons
+
+.btn {
+	&__secondary {
+		background-color: transparent;
+		border: 2px solid $white;
+		border-radius: 0;
+		color: $white;
+		padding: 15px 24px;
+
+		span {
+			color: $white;
+		}
+	}
 }
 
 //////////////////

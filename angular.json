@@ -5,7 +5,11 @@
   "projects": {
     "portfolio": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -131,7 +135,9 @@
           "options": {
             "outputPath": "dist/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "bundleDependencies": false,
+            "externalDependencies": ["@firebase/firestore"]
           },
           "configurations": {
             "production": {

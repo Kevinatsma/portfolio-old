@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Project } from '../models/project.model';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { Project } from '../models/project.model';
 export class ProjectsService {
   projects$: Observable<Project[]>;
   projectCol: AngularFirestoreCollection<Project>;
+  notification$: Subject<any> = new Subject();
 
   constructor(private afs: AngularFirestore) {
     this.projectCol = this.afs.collection<Project>('projects');

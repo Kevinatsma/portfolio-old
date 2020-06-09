@@ -1,0 +1,172 @@
+@import './../../../../assets/scss/config';
+@import './../../../../assets/scss/mixins';
+@import './../../../../assets/scss/animations';
+
+$img-offset: 50px;
+
+.project-container {
+    height: 100%;
+    width: 100%;
+
+    &__item {
+        height: 100%;
+        width: 100%;
+
+        &--list {
+            .card {
+                @include flex(flex-start, flex-start, row, nowrap);
+                height: $list-card-height;
+                pointer-events: none;
+                transition: transform .3s ease-in-out;
+                transform: scale(1);
+                width: 100%;
+
+                > * {
+                    pointer-events: all;
+                }
+
+                &:hover, &:active {
+                    transform: scale(1.018);
+
+                    .card__img {
+                        &::after {
+                            background: rgba(0, 0, 0, 0.75);
+                        }
+                    }
+
+                    sliced-button {
+                        opacity: 1;
+                        transition: opacity .3s ease-in-out;
+                        transition-delay: .3s;
+                        z-index: 10;
+                    }
+                }
+
+                &__img {
+                    border: 1px solid $white-2;
+                    border-radius: 4px;
+                    height: 100%;
+                    overflow: hidden;
+                    position: relative;
+                    width: calc(100% / 3);
+                    @extend %flex-center;
+
+                    &::before {
+                        border: 1px solid $white-2;
+                        border-radius: 4px;
+                        box-shadow: 2px 2px 22px $black-2, 
+                                    2px 2px 22px $black-3;
+                        content: "";
+                        height: calc(100% - 22px);
+                        left: 11px;
+                        position: absolute;
+                        top: 11px;
+                        width: calc(100% - 22px);
+                    }
+
+                    &::after {
+                        bottom: 0;
+                        content: '';
+                        height: 100%;
+                        left: 0;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        transition: all .5s ease-in-out;
+                        width: 100%;
+                        z-index: 5;
+                    }
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                    }
+
+                    sliced-button {
+                        position: absolute;
+                        opacity: 0;
+                        transition-delay: 0;
+                        transition: opacity .3s ease-in-out;
+                    }
+                }
+
+                &__content {
+                    background: linear-gradient(160deg, #{$black-2}, #{$black-3});
+                    border: 1px solid $border-color;
+                    border-width: 1px 1px 1px 0;
+                    border-radius: 0 8px 8px 0;
+                    box-shadow: 2px 2px 16px lighten($black-1, 5%), 5px -3px 11px $black-3;
+                    height: 80%;
+                    margin: auto 0 25px;
+                    padding: 50px;
+                    width: calc(((100% / 3) * 2) + #{$img-offset});
+                    @include flex(center, flex-start, column, nowrap);
+
+                    .card-header {
+                        @include flex(flex-start, center, row, nowrap);
+
+                        border-bottom: 1px solid $border-color;
+                        height: auto;
+                        padding: 0 0 30px;
+                        width: 100%;
+
+                        &__title {
+                            font-weight: 300;
+                        }
+
+                        &__stack {
+                            @include flex(flex-start, center, row, nowrap);
+
+                            background-color: $black-3;
+                            border: 1px solid $border-color;
+                            height: auto;
+                            margin: 0 0 0 auto;
+                            max-width: 50%;
+                            padding: 10px 30px;
+                            width: fit-content;
+
+                            .tooltip-icon {
+                                cursor: help;
+                                height: 30px;
+                                box-shadow: 5px 5px 5px 5px $black-1 5px 5px $black-1;
+                                margin: 0 30px 0 0;
+                                width: 30px;
+                                
+                                &:last-child {
+                                    margin: 0;
+                                }
+
+                                img {
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                    .card-content {
+                        margin: 30px 0 0;
+                    }
+                }
+            }
+        }
+
+        &--full-screen {
+            @include flex(center, center, column, nowrap);
+    
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    
+        &--gallery {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &__title {
+        color: $white;
+    }
+}

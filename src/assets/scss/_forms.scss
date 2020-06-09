@@ -4,7 +4,7 @@
 .form-container {
     &__section {
         background-color: transparent;
-        border: 1px solid $grey-3;
+        border: 1px solid $grey-1;
         border-radius: 5px;
         height: 100%;
         padding: 2em 3em;
@@ -16,7 +16,6 @@
         }
 
         h3 {
-            color: $grey-7;
             font-weight: $semi-bold;
             @include rem(font-size, 22px);
         }
@@ -38,7 +37,7 @@
                 }
     
                 .mat-form-field-underline {
-                    background: $grey-3;
+                    background: $grey-1;
                 }
     
                 input, input::placeholder, textarea, textarea::placeholder {
@@ -73,18 +72,18 @@
                         caret-color: $primary-color;
                     }
                     .mat-form-field-label {
-                        color: $grey-3;
+                        color: $grey-1;
                         @include rem(font-size, 16px);
                     }
     
                     .mat-form-field-underline {
-                        background-color: lighten($black, 25%);
+                        background-color: lighten($black-2, 25%);
                     }
                 }
     
                 .mat-form-field-underline {
                     .mat-form-field-ripple {
-                        background-color: lighten($black, 25%) !important;
+                        background-color: lighten($black-2, 25%) !important;
                     }
                 }
             }

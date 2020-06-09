@@ -1,0 +1,33 @@
+<div class="project-list"
+    *ngIf="projects?.length; else loadingSpinner">
+    <div class="project-list__actions" *ngIf="!utils.isMobile()">
+        <!-- <mat-form-field class="filters">
+            <mat-label>Filter</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let option of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field> -->
+        <div class="view-filter">
+            <button class="btn__icon" *ngFor="let layout of layouts"
+                [class.btn__icon--active]="layout.id === currentLayout"
+                (click)="toggleLayout(layout.id)">
+                <i class="{{layout.fa}}"></i>
+            </button>
+        </div>
+    </div>
+    <div class="project-list__list project-list__list--{{currentLayout}}">
+        <div class="project-item"
+            *ngFor="let project of projects; index as i"
+            id="project-item-{{i}}">
+            <project-item [project]="project" [index]="i"
+                [class.visible]="elementInView(i)"
+                [layout]="currentLayout"></project-item>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingSpinner>
+    <p class="white">Loading Spinner</p>
+</ng-template>

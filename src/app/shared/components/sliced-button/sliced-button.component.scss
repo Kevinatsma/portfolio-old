@@ -1,0 +1,75 @@
+@import './../../../../assets/scss/config';
+
+.btn__secondary {
+    padding: 1.2rem 2.5rem calc(1.2rem - 6px);
+    border: 2px solid #ffffff;
+    border-radius: 0rem;
+    letter-spacing: 2.5px;
+    position: relative;
+    transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+
+    &.transparent-bg {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    &::before {
+        background-color: $white;
+        content: '';
+        height: 2px;
+        margin-top: 5px;
+        position: absolute;
+        right: -35px;
+        top: 22px;
+        transition: all .8s cubic-bezier(0.890, -0.170, 0.140, 1.225);
+        transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+        width: 60px;
+    }
+
+    &:hover {
+        &::before {
+            width: calc(100% + 70px);
+        }
+
+        > div {
+            transition-delay: .35s;
+
+            &.top {
+                top: -4px;
+            }
+
+            &.bottom {
+                bottom: -3px;
+            }
+        }
+    }
+
+    > div {
+        overflow: hidden;
+        position: relative;
+        transition: all .28s ease;
+        transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+        transition-delay: .3s;
+
+        span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        &.top {
+            height: 10px;
+            top: -1px;
+        }
+
+        &.bottom {
+            bottom: 1px;
+            height: 12px;
+
+            span {
+                left: 0;
+                position: absolute;
+                top: -10px;
+            }
+        }
+    }
+}
